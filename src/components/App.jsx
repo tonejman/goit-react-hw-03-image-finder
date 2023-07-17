@@ -81,18 +81,7 @@ export class App extends Component {
   };
 
   onLoader = () => {
-    this.setState({ isLoading: false });
-  };
-
-  handleLoader = () => {
-    const { isLoading, setLoading } = this.state;
-    if (!isLoading) {
-      setLoading(true);
-    } else {
-      setTimeout(() => {
-        setLoading(false);
-      }, 3500);
-    }
+    this.setState({ isLoading: true });
   };
 
   render() {
@@ -107,12 +96,7 @@ export class App extends Component {
           onLoadMore={this.handleLoadMore}
           onClickImage={this.onClickImage}
         />
-        {this.ShowButton() && (
-          <Button
-            onLoadMore={this.handleLoadMore}
-            onClick={this.handleLoader}
-          />
-        )}
+        {this.ShowButton() && <Button onLoadMore={this.handleLoadMore} />}
 
         {showModal && (
           <Modal
